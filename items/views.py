@@ -1,6 +1,5 @@
 from django.conf import settings
-from django.shortcuts import get_object_or_404, redirect, render
-from django.views import View
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import DetailView, TemplateView
 
 import stripe
