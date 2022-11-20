@@ -5,10 +5,8 @@ class Item(models.Model):
     name = models.CharField(max_length=100,
                             verbose_name='Название')
     description = models.TextField(verbose_name='Описание')
-    price = models.DecimalField(max_digits=8,
-                                decimal_places=2,
-                                default=0,
-                                verbose_name='Цена')
+    price = models.IntegerField(default=0,
+                                verbose_name='Цена')  # Цена в центах
 
     class Meta:
         verbose_name = 'Предмет'
@@ -16,3 +14,6 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_display_price(self):
+        return "{0:.2f}".format(self.price / 100)
